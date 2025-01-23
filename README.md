@@ -1,29 +1,18 @@
-# Izveštaj o statičkoj analizi koda
+Izveštaj sa zapažanjima:
 
-## 1. Neefikasna logika u `Calculate` metodi
-- Kod koristi rekurziju za svaku operaciju, što može dovesti do nepotrebne složenosti.
-- Preporuka: koristiti iterativni pristup sa odgovarajućim prioritetima za operacije.
+Calculator.java - 12 linija koda – Ovaj deo koda koristi statički metod za izvođenje svih operacija. Preporučuje se refaktorisanje kako bi se smanjila dupliranja koda i poboljšala čitljivost.
 
-## 2. Magijske konstante
-- Koristi se konstantni karakteri za operacije. Umesto toga, preporučuje se korišćenje `enum` tipa za veću čitljivost i proširivost.
+Calculator.java - 25 linija koda – Nedostatak obrade grešaka za deljenje sa nulom. Preporučuje se dodavanje odgovarajuće provere za izuzetke kako bi se izbegli problemi pri izvođenju.
 
-## 3. Verifikacija `Infinity` i `-Infinity`
-- Trenutni pristup sa `Infinity` i `-Infinity` može zbuniti korisnike.
-- Preporuka: vratiti odgovarajuću grešku ili izuzetak umesto tih specifičnih vrednosti.
+Calculator.java - 50 linija koda – Korišćenje "magic numbers" (npr. -1, 1). Preporučuje se zamena sa konstantama kako bi se poboljšala čitljivost i održavanje koda.
 
-## 4. Nedostatak validacije za ulaznu ekspresiju
-- Kod ne proverava da li je izraz ispravan (npr. `++`, `**`).
-- Preporuka: dodati osnovnu validaciju za ulazne izraze.
+Calculator.java - 100 linija koda – Preporučuje se refaktorisanje metoda Calculate() zbog prevelike složenosti. Funkcija bi trebalo da bude podeljena na manje funkcije kako bi se smanjila složenost.
 
-## 5. Korišćenje statičke promenljive `finalResult`
-- `finalResult` se koristi statički, što može dovesti do problema u višestrukim pozivima metode.
-- Preporuka: koristiti lokalne promenljive unutar funkcija.
+Start.java - 10 linija koda – Kod je veoma jednostavan i može se dalje razvijati, ali trenutno deluje nepotrebno, budući da Start.java sadrži samo osnovnu strukturu bez dodatne funkcionalnosti.
 
-## 6. Testiranje i izuzeci
-- Greške u konverziji brojeva se hvataju, ali povratna vrednost je `"ERROR"`. Preporuka: koristiti specifične izuzetke za bolju kontrolu grešaka.
+Calculator.java - 54 linije praznog koda – Prazne linije mogu se eliminisati da bi se poboljšala čitljivost i estetika koda, kao i smanjila veličina fajla.
 
-## Preporučena poboljšanja:
-1. Validacija unosa.
-2. Optimizacija `Calculate` metode.
-3. Uvođenje `enum` za operacije.
-4. Lokalizacija promenljivih umesto statičkih.
+Napomena:
+
+Calculator.java sadrži 129 linija koda, što znači da je 54 linije praznog koda. Možda bi trebalo razmisliti o optimizaciji korišćenja praznih linija, kako bi kod bio efikasniji i lakši za čitanje.
+Start.java je vrlo kratak, ali se može koristiti za dalji razvoj aplikacije.
